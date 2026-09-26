@@ -136,4 +136,4 @@ public abstract class MixinJarEssence extends BlockEntity
         );
         return true;
     }
-        }
+}
