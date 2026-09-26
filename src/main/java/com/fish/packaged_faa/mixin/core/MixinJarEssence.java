@@ -8,6 +8,7 @@ import com.stal111.forbidden_arcanus.common.block.entity.forge.essence.EssenceTy
 import com.stal111.forbidden_arcanus.core.init.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -25,8 +26,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.random.RandomGenerator;
-import java.util.random.RandomGeneratorFactory;
 
 @Mixin(EssenceUtremJarBlockEntity.class)
 public abstract class MixinJarEssence extends BlockEntity
@@ -45,7 +44,7 @@ public abstract class MixinJarEssence extends BlockEntity
     @Unique
     private final List<BlockPos> pfaa$areaSoul = new ArrayList<>(5 * 5 * 5);
     @Unique
-    private final RandomGenerator pfaa$random = RandomGeneratorFactory.getDefault().create(114514_1919810L);
+    private final RandomSource pfaa$random = RandomSource.create(114514_1919810L);
 
     public MixinJarEssence(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
         super(type, pos, blockState);
@@ -137,4 +136,4 @@ public abstract class MixinJarEssence extends BlockEntity
         );
         return true;
     }
-}
+        }
